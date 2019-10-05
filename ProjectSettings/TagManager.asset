@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Background
-  - PlacesOfInterest
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 156248819
+    locked: 0
+  - name: PlacesOfInterest
+    uniqueID: 2249928157
+    locked: 0
+  - name: Player
+    uniqueID: 2962639051
     locked: 0
