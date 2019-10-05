@@ -194,34 +194,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2094155152 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4895639856426281908, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4895639855039938642}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2094155155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094155152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc303549c8caf444c880bad3a78f09e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stationsPrefabs:
-  - {fileID: 5950737621197026919, guid: b57ff0a02a76147b5942cea2011918f0, type: 3}
-  - {fileID: 8951046744051115630, guid: ba8ee4ea7214e45d489fa68aad2eec05, type: 3}
-  - {fileID: 2443270643325259629, guid: e9abb11b827534a709e2cb0439a60c4d, type: 3}
-  debrisPrefabs:
-  - {fileID: 8476744992227246869, guid: e26078e21d56a45b8921e946820f9441, type: 3}
-  - {fileID: 6855071140999733617, guid: a64c223ae727d497eb82ddb41793b964, type: 3}
-  - {fileID: 1595939142967678951, guid: 212021bbc97764c3b9a91566adb533b6, type: 3}
-  - {fileID: 3441161907409661861, guid: 01100399163384e9f9c17af8e5cb36db, type: 3}
-  amountEnemies: 20
 --- !u!1001 &4895639855039938642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,12 +209,12 @@ PrefabInstance:
     - target: {fileID: 4895639856426281914, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895639856426281914, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4895639856426281914, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
         type: 3}
@@ -288,16 +260,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4895639856426281909, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 156248819
-      objectReference: {fileID: 0}
-    - target: {fileID: 4895639856426281909, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412b8fb08eb104fbb9795f6ca3d8b48b, type: 3}
