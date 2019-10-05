@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\Restart.cs" />
     <Compile Include="Assets\Spawner.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Volumes/Storage/goinfre/lminta/not_again/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
