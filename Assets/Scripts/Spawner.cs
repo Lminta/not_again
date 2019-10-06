@@ -51,16 +51,20 @@ public class Spawner : MonoBehaviour
 
     public void SpawnStations()
     {
+        GameObject[] start = GameObject.FindGameObjectsWithTag("StartDesk");
         float border = con.lifetime * difficult;
         if (border > 5000)
             border = 5000;
         for (int i = 0; i < stationsPrefabs.Count; i++)
-        {
+        { 
             float x = 9 * Random.Range(-border, border) / 5000f;
             float y = Random.Range(-border, border) / 1000f;
             GameObject prefab = stationsPrefabs[i];
+            if (prefab.CompareTag("StartDesk") && start.Length != 0)
+                continue;
             var ranVec = new Vector3(x, y, 1);
             prefab.transform.position = ranVec;
+
             Result.Add(Instantiate(prefab, ranVec, prefab.transform.rotation));
         }
     }
@@ -79,10 +83,10 @@ public class Spawner : MonoBehaviour
             objs[0].transform.position = ranVec;
         }
     }
+
     void CheckObject()
     {
         float border = con.lifetime * difficult;
-        Debug.Log(border);
         for (int i = 0; i < Result.Count; i++)
         {
             if (System.Math.Abs(Result[i].transform.position.x) > 9 * border / 5000f ||

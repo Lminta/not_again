@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MapBorder
+  - StartDesk
   layers:
   - Default
   - TransparentFX
