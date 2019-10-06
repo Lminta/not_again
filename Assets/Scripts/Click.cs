@@ -7,6 +7,11 @@ public class Click : MonoBehaviour
     public GameObject Player;
     public PlayerController controler;
     public Vector3 destination;
+    public Inventory inventory;
+    public GameObject chestInventory;
+    // Start is called before the first frame update
+    private GameObject[] spawner;
+    private GameObject[] gameObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,34 @@ public class Click : MonoBehaviour
             {
                 destination = Player.transform.position;
                 Debug.Log(hit.collider.gameObject.name);
+            }
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+
+
+                if (hit.collider.gameObject.tag == "gotInventory")
+                {
+
+                    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+
+                    foreach (GameObject obj in gameObjects)
+                    {
+                        //obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                        //obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                    }
+                    //hit.collider.gameObject.GetComponent<Inventory>().Show();
+                }
+                else if (hit.collider.gameObject.name == "gotInventory")
+                {
+                    //gameObjects = GameObject.FindGameObjectsWithTag("BackEnd");
+
+                    //foreach (GameObject obj in gameObjects)
+                    //{
+                    //    obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                    //    obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                    //}
+                }
             }
         }
     }

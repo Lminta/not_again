@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MapBorder
+  - gotInventory
   layers:
   - Default
   - TransparentFX
