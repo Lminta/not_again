@@ -20,12 +20,14 @@ public class Spawner : MonoBehaviour
     private GameObject[] objs;
 
     private void Start()
-    {
-        objs = GameObject.FindGameObjectsWithTag("Player");
-        con = objs[0].GetComponent<PlayerController>();
+    { 
+        objs = GameObject.FindGameObjectsWithTag("Player"); 
+        SpawnPlayer();
+        if (objs.Length != 0)
+            con = objs[0].GetComponent<PlayerController>();
         SpawnSites();
         SpawnStations();
-        SpawnPlayer();
+
     }
 
     public void SpawnSites()
