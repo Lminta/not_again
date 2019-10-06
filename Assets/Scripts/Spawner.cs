@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     public PlayerController con;
     public float difficult = 1;
     public GameObject Player;
-    public int amountSites = 20;
+    public int amountSites = 50;
 
     public List<GameObject> Result = new List<GameObject>();
     public float EPSILON { get; private set; }
@@ -22,8 +22,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         objs = GameObject.FindGameObjectsWithTag("Player");
-        con = objs[0].GetComponent<PlayerController>(); 
-        amountSites = con.lifetime / 100;
+        con = objs[0].GetComponent<PlayerController>();
         SpawnSites();
         SpawnStations();
         SpawnPlayer();
@@ -31,9 +30,7 @@ public class Spawner : MonoBehaviour
 
     public void SpawnSites()
     {
-        float border = con.lifetime * difficult;
-        if (border > 5000)
-            border = 5000;
+        float border = 5000;
         for (int i = 0; i < amountSites; i++)
         {
             float x = 9 * Random.Range(-border, border) / 5000f;
@@ -48,6 +45,8 @@ public class Spawner : MonoBehaviour
             else
                 i--;
         }
+
+        CheckObject();
     }
 
     public void SpawnStations()
@@ -77,8 +76,18 @@ public class Spawner : MonoBehaviour
         {
             objs[0].gameObject.SetActive(true);
             var ranVec = Vector3.zero;
-            //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
             objs[0].transform.position = ranVec;
         }
     }
- }
+    void CheckObject()
+    {
+        float border = con.lifetime * difficult;
+        Debug.Log(border);
+        for (int i = 0; i < Result.Count; i++)
+        {
+            if (System.Math.Abs(Result[i].transform.position.x) > 9 * border / 5000f ||
+            System.Math.Abs(Result[i].transform.position.y) > border / 1000)
+                Result[i].gameObject.SetActive(false);
+        }
+    }
+}
