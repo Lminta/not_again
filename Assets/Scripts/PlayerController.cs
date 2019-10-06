@@ -6,22 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject Camera;
+    public Click cl;
     public Text LifeTimeText; 
     public float speed;
     public int lifetime;
-    public float EPSILON { get; private set; }
+    public float EPSILON = 0.001f;
 
     private float t_0;
     // Start is called before the first frame update
     void Start()
     {
-
+        cl = Camera.GetComponent<Click>();
     }
 
     void FixedUpdate()
     {
-        Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        TryToMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         CheckTime();
+    }
+
+    void TryToMove(float moveHorizontal, float moveVertical)
+    {
+        if (System.Math.Abs(moveHorizontal) > EPSILON || System.Math.Abs(moveVertical) > EPSILON)
+        {
+            var vec = new Vector3(moveHorizontal, moveVertical, 0);
+            Movement(vec.normalized.x, vec.normalized.y); 
+            cl.destination = this.transform.position;
+        }
+
     }
 
     public void Movement(float moveHorizontal, float moveVertical)

@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1004987752}
   controler: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -457,6 +458,16 @@ PrefabInstance:
       propertyPath: speed
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: lifetime
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
 --- !u!1 &1840590302
@@ -604,6 +615,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094155155, guid: 412b8fb08eb104fbb9795f6ca3d8b48b, type: 3}
+      propertyPath: difficult
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6282647240633253897, guid: 412b8fb08eb104fbb9795f6ca3d8b48b,
         type: 3}
