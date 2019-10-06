@@ -7,11 +7,14 @@ using UnityEngine.UI;
 
 public class Restart : MonoBehaviour
 {
+    private GameObject[] objs;
     private float t_0;
     public Text respTime;
     // Start is called before the first frame update
     internal void Start()
     {
+        objs = GameObject.FindGameObjectsWithTag("Player");
+        objs[0].gameObject.SetActive(false);
         t_0 = Time.time;
     }
 

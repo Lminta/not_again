@@ -106,8 +106,9 @@ MonoBehaviour:
   - {fileID: 6855071140999733617, guid: a64c223ae727d497eb82ddb41793b964, type: 3}
   - {fileID: 1595939142967678951, guid: 212021bbc97764c3b9a91566adb533b6, type: 3}
   - {fileID: 3441161907409661861, guid: 01100399163384e9f9c17af8e5cb36db, type: 3}
-  Player: {fileID: 4482061657200300542, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
+  Player: {fileID: 3027396125958532047, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
   amountSites: 20
+  Result: []
 --- !u!61 &6282647240633253897
 BoxCollider2D:
   m_ObjectHideFlags: 0
