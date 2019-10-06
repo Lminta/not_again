@@ -48,10 +48,11 @@ public class Click : MonoBehaviour
 
                     foreach (GameObject obj in gameObjects)
                     {
-                        //obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                        //obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
                     }
-                    //hit.collider.gameObject.GetComponent<Inventory>().Show();
+                    hit.collider.GetComponentInChildren<CanvasGroup>().alpha = 1f;
+                    hit.collider.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
                 }
                 else if (hit.collider.gameObject.name == "gotInventory")
                 {

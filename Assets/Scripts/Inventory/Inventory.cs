@@ -21,7 +21,8 @@ public class Inventory : MonoBehaviour
         {
             this.playerInventory[i].AddItem(Instantiate<DragAndDropItem>(item, this.transform)); // add random of items
         }
-        //this.Hide();
+        if (this.gameObject.name != "PlayerInventory")
+            this.Hide();
     }
 
     // Update is called once per frame
