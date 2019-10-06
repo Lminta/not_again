@@ -62,9 +62,4 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("MapBorder"))
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 }

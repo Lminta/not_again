@@ -8,8 +8,11 @@ public class Click : MonoBehaviour
     public PlayerController controler;
     public Vector3 destination;
     // Start is called before the first frame update
+    AudioSource audioTest;
+    private bool isplaying = false;
     void Start()
     {
+        audioTest = GetComponent<AudioSource>();
         controler = Player.GetComponent<PlayerController>();
     }
 
@@ -32,14 +35,21 @@ public class Click : MonoBehaviour
                 Debug.Log(hit.collider.gameObject.name);
             }
         }
-    }
 
-    void FixedUpdate()
-    {
         Vector3 distance = destination - Player.transform.position;
         if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
         {
+            if (!isplaying)
+            {
+                audioTest.Play(0);
+                isplaying = true;
+            }
             controler.Movement(distance.normalized.x, distance.normalized.y);
+        }
+        else
+        {
+            isplaying = false;
+            audioTest.Stop();
         }
     }
 }

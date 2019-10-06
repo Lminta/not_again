@@ -120,9 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6503a7719af4cca9d8e44c2dbfda11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  cl: {fileID: 0}
   LifeTimeText: {fileID: 0}
   speed: 0.05
   lifetime: 1000
+  EPSILON: 0.001
 --- !u!50 &1068605445205664107
 Rigidbody2D:
   serializedVersion: 4
