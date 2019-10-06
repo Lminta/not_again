@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
+    public GameObject Player;
+    public PlayerController controler;
+    private Vector3 destination;
     // Start is called before the first frame update
     void Start()
     {
-        
+        controler = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -19,11 +22,24 @@ public class Click : MonoBehaviour
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider != null)
+
+            if (hit.collider != null && !hit.collider.gameObject.CompareTag("Player")
+            && !hit.collider.gameObject.CompareTag("MapBorder"))
+                destination = hit.collider.gameObject.transform.position;
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
             {
+                destination = Player.transform.position;
                 Debug.Log(hit.collider.gameObject.name);
-                hit.collider.attachedRigidbody.AddForce(Vector2.up);
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 distance = destination - Player.transform.position;
+        if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
+        {
+            controler.Movement(distance.normalized.x, distance.normalized.y);
         }
     }
 }

@@ -20,20 +20,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
+        Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         CheckTime();
-
     }
 
-    void Movement()
+    public void Movement(float moveHorizontal, float moveVertical)
     {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-        //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
-
-        //Use the two store floats to create a new Vector2 variable movement.
         Vector3 movement = new Vector3(transform.position.x + moveHorizontal * speed,
         transform.position.y + moveVertical * speed,
         transform.position.z);
