@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 11437194}
   - component: {fileID: 11440904}
   m_Layer: 5
-  m_Name: Sword
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: aca4d14f34d5ddf4e8170528623d5ba7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4b2e2c9f19dd1e43b1f413c0c8b3076, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
