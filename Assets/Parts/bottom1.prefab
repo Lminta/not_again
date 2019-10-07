@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1171648563334754584}
   m_Layer: 5
   m_Name: bottom1
-  m_TagString: Untagged
+  m_TagString: bottom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.05}
   m_AnchorMax: {x: 0.95, y: 0.95}
-  m_AnchoredPosition: {x: -15.317932, y: -7.08313}
+  m_AnchoredPosition: {x: -15.317993, y: -7.08313}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1171648563334754586
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a5b7eadd2510f4cd38afb1da70cbfb35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 437a346df7f984a66aa5a88d81865066, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

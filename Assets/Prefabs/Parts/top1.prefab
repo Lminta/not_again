@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3323553831088917754}
   m_Layer: 5
   m_Name: top1
-  m_TagString: Untagged
+  m_TagString: top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: a5b7eadd2510f4cd38afb1da70cbfb35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8415594c62c5456f85a743b6fb7b369, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
