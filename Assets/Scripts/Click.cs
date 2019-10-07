@@ -5,17 +5,15 @@ using UnityEngine;
 public class Click : MonoBehaviour
 {
     public GameObject Player;
-    public PlayerController controler;
+    public PlayerController controller;
     public Vector3 destination;
-    public Inventory inventory;
-    public GameObject chestInventory;
     // Start is called before the first frame update
     private GameObject[] spawner;
     private GameObject[] gameObjects;
     // Start is called before the first frame update
     void Start()
     {
-        controler = Player.GetComponent<PlayerController>();
+        controller = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -73,7 +71,7 @@ public class Click : MonoBehaviour
         Vector3 distance = destination - Player.transform.position;
         if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
         {
-            controler.Movement(distance.normalized.x, distance.normalized.y);
+            controller.Movement(distance.normalized.x, distance.normalized.y);
         }
     }
 }
