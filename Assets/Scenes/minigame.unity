@@ -1020,6 +1020,16 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 711057481560912181, guid: 932be696b96544f689a370e62d86aaa0,
+        type: 3}
+      propertyPath: mid
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 711057481560912181, guid: 932be696b96544f689a370e62d86aaa0,
+        type: 3}
+      propertyPath: bot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4545668210398711878, guid: 932be696b96544f689a370e62d86aaa0,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1829,6 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0942d4fb3b6401088b7a10d0fad06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shake: 1
   outer_edge: {fileID: 542054874}
   outer: {fileID: 542054873}
   inner: {fileID: 542054875}

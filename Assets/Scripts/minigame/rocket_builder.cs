@@ -8,6 +8,9 @@ public class rocket_builder : MonoBehaviour
     public GameObject r_top;
     public GameObject r_mid;
     public GameObject r_bot;
+
+
+    //ЭТИМ ТРЕМ ИНТАМ НАДО ВЫДАТЬ ЗНАЧЕНИЯ ОТ 0 ДО 2
     public int top = 0;
     public int mid = 0;
     public int bot = 0;
