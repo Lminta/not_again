@@ -61,7 +61,7 @@ public class mg_runner_s : MonoBehaviour
         if (!anim_done)
         {
             takeof_anim();
-            if (System.Math.Abs(rocket.transform.position.y) < 0.01)
+            if (System.Math.Abs(rocket.transform.position.y) < 0.1)
             {
                 anim_done = true;
                 time = Time.time;
@@ -90,7 +90,7 @@ public class mg_runner_s : MonoBehaviour
         else
         {
             Vector2 sky_pos = sky.transform.position;
-            sky_pos.y -= 0.017f;
+            sky_pos.y -= 0.016f;
             sky.transform.position = sky_pos;
             if (Input.GetKey("up"))
             {
@@ -153,7 +153,7 @@ public class mg_runner_s : MonoBehaviour
         if (!death && (rb2D.velocity.x > -0.5f && rb2D.velocity.x < 0.5f) &&
         (rb2D.velocity.y > -0.5f && rb2D.velocity.y < 0.5f))
         {
-            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * 200);
+            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * shake);
             //Debug.Log(force);
             //Debug.Log(Time.time - time);
         }
@@ -183,9 +183,9 @@ public class mg_runner_s : MonoBehaviour
 
     void DrawSpeed()
     {
-        speed = 100 / 30 * Time.time - time;
+        speed = 100 / 30 * (Time.time - time);
         float pos_y = 3.7f / 100.0f * speed * 2;
-        //Debug.Log("POS_Y" + pos_y);
+        Debug.Log("TIME: " + time + "POS: " + pos_y + "SPEED: " + speed);
         rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.7f + pos_y, 0);
         //speed_text.text = "Speed: " + speed.ToString() + "%";
     }
