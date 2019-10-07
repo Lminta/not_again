@@ -8,6 +8,10 @@ TagManager:
   - gotInventory
   - StartDesk
   - Menu
+  - middle
+  - top
+  - bottom
+  - Controller
   layers:
   - Default
   - TransparentFX

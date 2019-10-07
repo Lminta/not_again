@@ -167,6 +167,7 @@ public class mg_runner_s : MonoBehaviour
         if (speed >= 100.0f)
         {
             //ЗДЕСЬ ВЫЗВАТЬ СЦЕНУ ПОБЕДЫ
+            SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
         }
         if (death)
         {

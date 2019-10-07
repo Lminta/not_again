@@ -14,14 +14,23 @@ public class GameController : MonoBehaviour
     public ModalPanel modalPanel;
     public float space_ship = 0.0f;
     public int[] parts;
-
+    private GameObject[] objects;
     private void Awake()
     {
+     
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
+        
+        objects = GameObject.FindGameObjectsWithTag("Controller");
+        if (objects.Length > 1)
+        {
+            Debug.Log("Destr");
+            Destroy(this.gameObject);
+        }
+
         start = GameObject.FindGameObjectWithTag("StartDesk");
         playerInv = start.GetComponent<Inventory>();
     }
@@ -61,9 +70,9 @@ public class GameController : MonoBehaviour
                 if (invItems[0].tag == "top" && invItems[1].tag == "middle" && invItems[2].tag == "bottom")
                 {
                     parts = new int[5];
-                    parts[0] =  invItems[0].name[invItems[0].name.Length - 8] - '0';
-                    parts[1] = invItems[1].name[invItems[1].name.Length - 8] - '0';
-                    parts[2] = invItems[2].name[invItems[2].name.Length - 8] - '0';
+                    parts[0] =  invItems[0].name[invItems[0].name.Length - 8] - 48;
+                    parts[1] = invItems[1].name[invItems[1].name.Length - 8] - 48;
+                    parts[2] = invItems[2].name[invItems[2].name.Length - 8] - 48;
                     if (winCondition == false)
                     {
                         winCondition = true;

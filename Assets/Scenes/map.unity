@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 242359550}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8d10d57332c47e6a41691ee6b00aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInv: {fileID: 7016518920468475175}
+  playerInv: {fileID: 0}
   start: {fileID: 0}
   playerController: {fileID: 1004987754}
   modalPanel: {fileID: 642664161}
@@ -1764,12 +1764,12 @@ PrefabInstance:
     - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
       propertyPath: lifetime
-      value: 5000
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 0.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
@@ -3469,7 +3469,6 @@ GameObject:
   - component: {fileID: 936644610028683960}
   - component: {fileID: 7385908358251143420}
   - component: {fileID: 7016518920468475175}
-  - component: {fileID: 936644610028683944}
   m_Layer: 5
   m_Name: PlayerInventory
   m_TagString: Untagged
@@ -3477,18 +3476,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &936644610028683944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936644610028683943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fc6211e8671d4c9dbd8e30e317ebf95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &936644610028683960
 RectTransform:
   m_ObjectHideFlags: 0
