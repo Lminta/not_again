@@ -11,7 +11,7 @@ public class mg_runner_s : MonoBehaviour
     Vector2                     force = Vector2.zero;
     float                       shake = 1.0f;
     float                       time = 0;
-    public Text                 speed_text;
+    //public Text                 speed_text;
     private float               speed;
     public EdgeCollider2D       outer_edge;
     public PolygonCollider2D    outer;
@@ -28,6 +28,7 @@ public class mg_runner_s : MonoBehaviour
     public GameObject           arena;
     public GameObject           smoke;
     public GameObject           scale;
+    public GameObject           sky;
     SpriteRenderer              smoke_s;
     float                       time_main;
     float                       time_anim;
@@ -60,8 +61,11 @@ public class mg_runner_s : MonoBehaviour
         if (!anim_done)
         {
             takeof_anim();
-            if (System.Math.Abs(rocket.transform.position.y) < 0.1)
+            if (System.Math.Abs(rocket.transform.position.y) < 0.01)
+            {
                 anim_done = true;
+                time = Time.time;
+            }
             else
             {
                 Vector2 r_pos = rocket.transform.position;
@@ -85,6 +89,9 @@ public class mg_runner_s : MonoBehaviour
         }
         else
         {
+            Vector2 sky_pos = sky.transform.position;
+            sky_pos.y -= 0.017f;
+            sky.transform.position = sky_pos;
             if (Input.GetKey("up"))
             {
                 rb2D.AddForce(Vector2.up * 2f);
@@ -146,9 +153,9 @@ public class mg_runner_s : MonoBehaviour
         if (!death && (rb2D.velocity.x > -0.5f && rb2D.velocity.x < 0.5f) &&
         (rb2D.velocity.y > -0.5f && rb2D.velocity.y < 0.5f))
         {
-            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * shake);
-            Debug.Log(force);
-            Debug.Log(Time.time - time);
+            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * 200);
+            //Debug.Log(force);
+            //Debug.Log(Time.time - time);
         }
     }
 
@@ -177,8 +184,8 @@ public class mg_runner_s : MonoBehaviour
     void DrawSpeed()
     {
         speed = 100 / 30 * Time.time - time;
-        float pos_y = 3.7f / 100.0f * speed;
-        Debug.Log("POS_Y" + pos_y);
+        float pos_y = 3.7f / 100.0f * speed * 2;
+        //Debug.Log("POS_Y" + pos_y);
         rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.7f + pos_y, 0);
         //speed_text.text = "Speed: " + speed.ToString() + "%";
     }
