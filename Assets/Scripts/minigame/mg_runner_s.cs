@@ -20,23 +20,18 @@ public class mg_runner_s : MonoBehaviour
     float                       death_timer;
     public Text                 death_text;
     public GameObject           rocket;
+    public GameObject           rocket_scale;
+    private GameObject[]        objs;
     private readonly float      EPSILON;
-
-
-    private GameObject[] objs;   
 
     void Start()
     {
         objs = GameObject.FindGameObjectsWithTag("Player");
-        if (objs != null)
-        {
-            Debug.Log(objs[0]);
-            objs[0].gameObject.SetActive(false);
-        }
+        objs[0].gameObject.SetActive(false);
         time = Time.time;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        Debug.Log(rb2D);
         InvokeRepeating("GetForce", 1, 0.5f);
-        speed_text.text = "";
         death_text.text = "";
         DrawSpeed();
 
@@ -63,6 +58,10 @@ public class mg_runner_s : MonoBehaviour
         {
             rb2D.AddForce(Vector2.left * 2f);
         }
+        if (Input.GetKey("space") || speed >= 100.0f)
+        {
+            SceneManager.LoadScene("map", LoadSceneMode.Single);
+        }
         rb2D.AddForce(force);
         DrawSpeed();
         ControlRocket();
@@ -71,17 +70,27 @@ public class mg_runner_s : MonoBehaviour
 
     void ControlRocket()
     {
-        Vector2 r_pos = new Vector2(rb2D.transform.position.x * 3.0f, rb2D.transform.position.y + 5.0f);
+        Vector2 r_pos = new Vector2((rb2D.transform.position.x - 8.7f) * 2.5f, rb2D.transform.position.y * 2.5f);
+        Vector3 r_rot = new Vector3(0, 0, rb2D.velocity.x * 0.2f);
+        rocket.transform.Rotate(r_rot);
+        rocket.transform.position = r_pos;
+    }
+
+    void ShakeRocket(float frc)
+    {
+        Vector2 r_pos = rocket.transform.position;
+        r_pos.x += Random.Range(frc * -1.0f, frc);
+        r_pos.y += Random.Range(frc * -1.0f, frc);
         rocket.transform.position = r_pos;
     }
 
     void GetForce()
     {
         int[] valid = new int[] { 1, -1 };
-        if (!death && (rb2D.velocity.x > -0.3f && rb2D.velocity.x < 0.3f) &&
-        (rb2D.velocity.y > -0.3f && rb2D.velocity.y < 0.3f))
+        if (!death && (rb2D.velocity.x > -0.5f && rb2D.velocity.x < 0.5f) &&
+        (rb2D.velocity.y > -0.5f && rb2D.velocity.y < 0.5f))
         {
-            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (5 * 4);
+            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * shake);
             Debug.Log(force);
             Debug.Log(Time.time - time);
         }
@@ -89,15 +98,12 @@ public class mg_runner_s : MonoBehaviour
 
     void CheckDeath()
     {
-        Vector2 r_pos = rocket.transform.position;
         if (death)
         {
             if (Time.time - death_timer < 3.0f)
             {
-                death_text.text = ">>>Warning!<<<";
-                r_pos.x += Random.Range(-0.1f, 0.1f);
-                r_pos.y += Random.Range(-0.1f, 0.1f);
-                rocket.transform.position = r_pos;
+                death_text.text = ">>>   Warning!   <<<\nPress 'space' to warp";
+                ShakeRocket(0.1f);
             }
             else
             {
@@ -106,6 +112,7 @@ public class mg_runner_s : MonoBehaviour
         }
         else
         {
+            ShakeRocket(0.02f);
             death_text.text = "";
         }
 
@@ -114,6 +121,8 @@ public class mg_runner_s : MonoBehaviour
     void DrawSpeed()
     {
         speed = 100 / 30 * Time.time - time;
+        float pos_y = 6.0f / 100.0f * speed;
+        rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.0f + pos_y, 0);
         speed_text.text = "Speed: " + speed.ToString() + "%";
     }
 
