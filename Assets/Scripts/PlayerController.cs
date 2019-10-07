@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour
         this.lifetime -= dmg;
     }
 
-    //void Awake()
-    //{
-    //    DontDestroyOnLoad(this.gameObject);
-    //}
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 }

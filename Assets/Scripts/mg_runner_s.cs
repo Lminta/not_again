@@ -22,8 +22,14 @@ public class mg_runner_s : MonoBehaviour
     public GameObject           rocket;
     private readonly float      EPSILON;
 
+
+    private GameObject[] objs;   
+
     void Start()
     {
+        objs = GameObject.FindGameObjectsWithTag("Player");
+        Debug.Log(objs[0]);
+        objs[0].gameObject.SetActive(false);
         time = Time.time;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating("GetForce", 1, 0.5f);
