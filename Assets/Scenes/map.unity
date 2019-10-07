@@ -1451,11 +1451,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3027396125958532047, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 260214812320693361, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1513,29 +1508,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
-      propertyPath: LifeTimeText
-      value: 
-      objectReference: {fileID: 1840590304}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: speed
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
       propertyPath: Camera
       value: 
       objectReference: {fileID: 519420028}
     - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
-      propertyPath: lifetime
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: cl
+      propertyPath: LifeTimeText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1840590304}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
 --- !u!114 &1340588705 stripped
