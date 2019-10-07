@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
     public Inventory playerInv;
+    public GameObject start;
     private DragAndDropItem[] invItems;
     private bool winCondition = false;
     public PlayerController playerController;
@@ -18,7 +19,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        start = GameObject.FindGameObjectWithTag("StartDesk");
+        playerInv = start.GetComponent<Inventory>();
     }
 
     // Update is called once per frame
