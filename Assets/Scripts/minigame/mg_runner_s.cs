@@ -9,7 +9,10 @@ public class mg_runner_s : MonoBehaviour
 {
     private Rigidbody2D         rb2D;
     Vector2                     force = Vector2.zero;
-    float                       shake = 1.0f;
+
+    //ЭТА ПЕРЕМЕННАЯ ОТВЕЧАЕТ ЗА СЛОЖНОСТЬ, 1 -> ОЧЕНЬ СЛОЖНО | 10 -> ОЧЕНЬ ЛЕГКО
+    public float                shake;
+
     float                       time = 0;
     //public Text                 speed_text;
     private float               speed;
@@ -110,6 +113,7 @@ public class mg_runner_s : MonoBehaviour
             }
             if (Input.GetKey("space") || speed >= 100.0f)
             {
+                //ЗДЕСЬ ОТПРАВИТЬ SPEED В GAME_CONTROLLER
                 SceneManager.LoadScene("map", LoadSceneMode.Single);
             }
             rb2D.AddForce(force);
@@ -161,15 +165,21 @@ public class mg_runner_s : MonoBehaviour
 
     void CheckDeath()
     {
+        if (speed >= 100.0f)
+        {
+            //ЗДЕСЬ ВЫЗВАТЬ СЦЕНУ ПОБЕДЫ
+        }
         if (death)
         {
             if (Time.time - death_timer < 3.0f)
             {
+                //ЗДЕСЬ ВЫВЕСТИ ВАРНИНГ
                 death_text.text = ">>>   Warning!   <<<\nPress 'space' to warp";
                 ShakeRocket(0.1f);
             }
             else
             {
+                //ЗДЕСЬ ВЫЗДВАТЬ СЦЕНУ ПРОИГРЫША
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
         }

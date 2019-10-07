@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     private bool winCondition = false;
     public PlayerController playerController;
     public ModalPanel modalPanel;
+    public float space_ship = 0.0f;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
