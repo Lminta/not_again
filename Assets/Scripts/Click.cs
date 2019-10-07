@@ -57,13 +57,23 @@ public class Click : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.name == "gotInventory")
                 {
-                    //gameObjects = GameObject.FindGameObjectsWithTag("BackEnd");
+                    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
-                    //foreach (GameObject obj in gameObjects)
-                    //{
-                    //    obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                    //    obj.GetComponent<Inventory>().GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
-                    //}
+                    foreach (GameObject obj in gameObjects)
+                    {
+                        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                    }
+                }
+            }
+            else
+            {
+                gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+
+                foreach (GameObject obj in gameObjects)
+                {
+                    obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                    obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
                 }
             }
         }
