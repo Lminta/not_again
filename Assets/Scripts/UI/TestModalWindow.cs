@@ -6,15 +6,16 @@ using UnityEngine.Events;
 
 public class TestModalWindow : MonoBehaviour
 {
-    private ModalPanel modalPanel;
+    public ModalPanel modalPanel;
 
     private UnityAction rightAction;
 
     private UnityAction leftAction;
 
+    public GameObject player;
     private void Awake()
     {
-        modalPanel = ModalPanel.Instance();
+        //modalPanel = ModalPanel.Instance();
         rightAction = new UnityAction(testRight);
         leftAction = new UnityAction(testLeft);
 
@@ -32,5 +33,6 @@ public class TestModalWindow : MonoBehaviour
     void testLeft()
     {
         Debug.Log("butWhy?");
+        player.GetComponent<PlayerController>().GetDmg(20);
     }
 }

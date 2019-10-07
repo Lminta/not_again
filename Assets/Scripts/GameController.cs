@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public Inventory playerInv;
     private DragAndDropItem[] invItems;
     private bool winCondition = false;
+    public PlayerController playerController;
+    public ModalPanel modalPanel;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -25,8 +27,16 @@ public class GameController : MonoBehaviour
         invItems =  playerInv.get_inventory();
         //foreach(DragAndDropItem item in invItems)
         //{ 
-            
+
         //}
+        int rand = Random.Range(1, 3);
+
+        if (playerController.lifetime > 50 && (playerController.lifetime - rand ) % 200 == 0)
+        {
+            this.GetComponent<TestModalWindow>().TestModal();
+            Debug.Log(modalPanel);
+        }
+
         if (invItems.Length > 3 & winCondition == false) {
             winCondition = true;
             Debug.Log("Win");
