@@ -333,6 +333,8 @@ MonoBehaviour:
   start: {fileID: 0}
   playerController: {fileID: 1004987754}
   modalPanel: {fileID: 642664161}
+  space_ship: 0
+  parts: 
 --- !u!4 &242359548
 Transform:
   m_ObjectHideFlags: 0
@@ -1609,7 +1611,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.6437473, y: 0.32756996}
+  m_Offset: {x: 3.3665333, y: 0.049913406}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1620,7 +1622,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.674843, y: 2.5800362}
+  m_Size: {x: 9.120415, y: 2.024723}
   m_EdgeRadius: 0
 --- !u!4 &1172269959
 Transform:
@@ -1729,21 +1731,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 519420028}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: LifeTimeText
-      value: 
-      objectReference: {fileID: 1840590304}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: lifetime
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 8509768139022846931, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
       propertyPath: m_Offset.y
@@ -1763,6 +1750,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.x
       value: -0.06232357
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: LifeTimeText
+      value: 
+      objectReference: {fileID: 1840590304}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: lifetime
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}

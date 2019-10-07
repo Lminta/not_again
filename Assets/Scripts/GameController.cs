@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public PlayerController playerController;
     public ModalPanel modalPanel;
     public float space_ship = 0.0f;
+    public int[] parts;
 
     private void Awake()
     {
@@ -28,32 +29,50 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        invItems =  playerInv.get_inventory();
-        //foreach(DragAndDropItem item in invItems)
-        //{ 
 
-        //}
-        int rand = Random.Range(1, 3);
-        if (playerController != null)
+        if (playerInv != null)
         {
-            if (playerController.lifetime > 500 && (playerController.lifetime - rand) % 500 == 0)
-            {
-                this.GetComponent<EncWolves>().Exec();
-                Debug.Log(modalPanel);
-            }
-        }
-        if (invItems.Length > 3) {
+            invItems = playerInv.get_inventory();
+            //foreach(DragAndDropItem item in invItems)
+            //{ 
 
-            if (invItems[0].tag == "top" && invItems[1].tag == "middle" && invItems[0].tag == "bottom")
+            //}
+
+            int rand = Random.Range(1, 3);
+            if (playerController != null)
             {
-                if (winCondition == false)
+                if (playerController.lifetime > 500 && (playerController.lifetime - rand) % 500 == 0)
                 {
-                    winCondition = true;
-                    Debug.Log("Win");
-                    SceneManager.LoadScene("minigame");
+                    this.GetComponent<EncWolves>().Exec();
+                    Debug.Log(modalPanel);
                 }
             }
+            if (invItems.Length > 2)
+            {
+
+                //Debug.Log(invItems[0].name);
+                //Debug.Log(invItems[1].tag);
+                //Debug.Log(invItems[2].tag);
+                Debug.Log(invItems[0].name[invItems[0].name.Length - 8]);
+                Debug.Log(invItems[1].name[invItems[1].name.Length - 8]);
+                Debug.Log(invItems[2].name[invItems[2].name.Length - 8]);
+
+
+                if (invItems[0].tag == "top" && invItems[1].tag == "middle" && invItems[2].tag == "bottom")
+                {
+                    parts = new int[5];
+                    parts[0] =  invItems[0].name[invItems[0].name.Length - 8] - '0';
+                    parts[1] = invItems[1].name[invItems[1].name.Length - 8] - '0';
+                    parts[2] = invItems[2].name[invItems[2].name.Length - 8] - '0';
+                    if (winCondition == false)
+                    {
+                        winCondition = true;
+                        Debug.Log("Win");
+                        SceneManager.LoadScene("minigame");
+                    }
+                }
+            }
+
         }
-      
     }
 }

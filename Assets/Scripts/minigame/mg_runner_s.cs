@@ -45,7 +45,6 @@ public class mg_runner_s : MonoBehaviour
     {
         time = Time.time;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        Debug.Log(rb2D);
         InvokeRepeating("GetForce", 1, 0.5f);
         death_text.text = "";
         DrawSpeed();
@@ -195,7 +194,6 @@ public class mg_runner_s : MonoBehaviour
     {
         speed = 100 / 30 * (Time.time - time);
         float pos_y = 3.7f / 100.0f * speed * 2;
-        Debug.Log("TIME: " + time + "POS: " + pos_y + "SPEED: " + speed);
         rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.7f + pos_y, 0);
         //speed_text.text = "Speed: " + speed.ToString() + "%";
     }
