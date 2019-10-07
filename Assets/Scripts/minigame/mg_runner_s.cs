@@ -9,7 +9,10 @@ public class mg_runner_s : MonoBehaviour
 {
     private Rigidbody2D         rb2D;
     Vector2                     force = Vector2.zero;
+
+    //ЭТА ПЕРЕМЕННАЯ ОТВЕЧАЕТ ЗА СЛОЖНОСТЬ, 1 -> ОЧЕНЬ СЛОЖНО | 10 -> ОЧЕНЬ ЛЕГКО
     public float                shake;
+
     float                       time = 0;
     //public Text                 speed_text;
     private float               speed;
