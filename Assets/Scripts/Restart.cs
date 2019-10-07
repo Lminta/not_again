@@ -13,9 +13,12 @@ public class Restart : MonoBehaviour
     // Start is called before the first frame update
     internal void Start()
     {
-        //objs = GameObject.FindGameObjectsWithTag("Player");
-        //Debug.Log(objs[0]);
-        //objs[0].gameObject.SetActive(false);
+        objs = GameObject.FindGameObjectsWithTag("Player");
+        if (objs.Length > 0)
+        {
+            Debug.Log(objs[0]);
+            objs[0].gameObject.SetActive(false);
+        }
         t_0 = Time.time;
     }
 

@@ -28,8 +28,11 @@ public class mg_runner_s : MonoBehaviour
     void Start()
     {
         objs = GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(objs[0]);
-        objs[0].gameObject.SetActive(false);
+        if (objs != null)
+        {
+            Debug.Log(objs[0]);
+            objs[0].gameObject.SetActive(false);
+        }
         time = Time.time;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating("GetForce", 1, 0.5f);
