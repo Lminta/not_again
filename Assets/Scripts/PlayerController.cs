@@ -63,8 +63,8 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(this.gameObject);
+    //}
 }

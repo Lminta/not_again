@@ -68,10 +68,13 @@ public class Click : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 distance = destination - Player.transform.position;
-        if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
+        if (Player != null)
         {
-            controller.Movement(distance.normalized.x, distance.normalized.y);
+            Vector3 distance = destination - Player.transform.position;
+            if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
+            {
+                controller.Movement(distance.normalized.x, distance.normalized.y);
+            }
         }
     }
 }
