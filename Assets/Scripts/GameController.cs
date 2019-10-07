@@ -30,17 +30,19 @@ public class GameController : MonoBehaviour
 
         //}
         int rand = Random.Range(1, 3);
-
-        if (playerController.lifetime > 50 && (playerController.lifetime - rand ) % 200 == 0)
+        if (playerController != null)
         {
-            this.GetComponent<EncWolves>().Exec();
-            Debug.Log(modalPanel);
+            if (playerController.lifetime > 50 && (playerController.lifetime - rand) % 200 == 0)
+            {
+                this.GetComponent<EncWolves>().Exec();
+                Debug.Log(modalPanel);
+            }
         }
 
         if (invItems.Length > 3 & winCondition == false) {
             winCondition = true;
             Debug.Log("Win");
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("minigame");
         }
     }
 }
