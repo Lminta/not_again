@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 1172269960}
   m_Layer: 0
   m_Name: Menu
-  m_TagString: Untagged
+  m_TagString: Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,6 +1727,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509768139022846931, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.30018044
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509768139022846931, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 23.365047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509768139022846931, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 23.42995
       objectReference: {fileID: 0}
     - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}

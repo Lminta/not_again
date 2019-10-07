@@ -30,41 +30,38 @@ public class Click : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             if (hit.collider != null && !hit.collider.gameObject.CompareTag("Player")
-            && !hit.collider.gameObject.CompareTag("MapBorder"))
+            && !hit.collider.gameObject.CompareTag("MapBorder") && !hit.collider.gameObject.CompareTag("Menu"))
                 destination = hit.collider.gameObject.transform.position;
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
-            {
                 destination = Player.transform.position;
-                Debug.Log(hit.collider.gameObject.name);
-            }
             if (hit.collider != null)
             {
                 Debug.Log(hit.collider.gameObject.name);
 
 
-                if (hit.collider.gameObject.tag == "gotInventory")
-                {
+                //if (hit.collider.gameObject.tag == "gotInventory")
+                //{
 
-                    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+                //    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
-                    foreach (GameObject obj in gameObjects)
-                    {
-                        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
-                    }
-                    hit.collider.GetComponentInChildren<CanvasGroup>().alpha = 1f;
-                    hit.collider.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
-                }
-                else if (hit.collider.gameObject.name == "gotInventory")
-                {
-                    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+                //    foreach (GameObject obj in gameObjects)
+                //    {
+                //        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                //        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                //    }
+                //    hit.collider.GetComponentInChildren<CanvasGroup>().alpha = 1f;
+                //    hit.collider.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
+                //}
+                //else if (hit.collider.gameObject.name == "gotInventory")
+                //{
+                //    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
-                    foreach (GameObject obj in gameObjects)
-                    {
-                        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
-                    }
-                }
+                //    foreach (GameObject obj in gameObjects)
+                //    {
+                //        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                //        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+                //    }
+                //}
             }
             else
             {
