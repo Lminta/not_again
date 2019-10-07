@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
         if (playerController.lifetime > 50 && (playerController.lifetime - rand ) % 200 == 0)
         {
-            this.GetComponent<TestModalWindow>().TestModal();
+            this.GetComponent<EncWolves>().Exec();
             Debug.Log(modalPanel);
         }
 
