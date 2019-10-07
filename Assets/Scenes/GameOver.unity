@@ -523,7 +523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: YOU ARE DEAD NOW((((((
+  m_Text: YOU ARE DEAD NOW
 --- !u!222 &2006979422
 CanvasRenderer:
   m_ObjectHideFlags: 0
