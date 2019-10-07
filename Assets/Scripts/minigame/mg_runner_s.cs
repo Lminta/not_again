@@ -15,7 +15,7 @@ public class mg_runner_s : MonoBehaviour
     private float               speed;
     public EdgeCollider2D       outer_edge;
     public PolygonCollider2D    outer;
-    public CircleCollider2D     inner;
+    public BoxCollider2D        inner;
     bool                        death;
     float                       death_timer;
     public Text                 death_text;
@@ -24,10 +24,21 @@ public class mg_runner_s : MonoBehaviour
     private GameObject[]        objs;
     private readonly float      EPSILON;
 
+    //ANIMATION
+    public GameObject           arena;
+    public GameObject           smoke;
+    public GameObject           scale;
+    SpriteRenderer              smoke_s;
+    float                       time_main;
+    float                       time_anim;
+    public Sprite[]             s_sprites = new Sprite[6];
+    bool                        takeof_done = false;
+    bool                        anim_done = false;
+    int                         takeof_count = 0;
+
+
     void Start()
     {
-        objs = GameObject.FindGameObjectsWithTag("Player");
-        objs[0].gameObject.SetActive(false);
         time = Time.time;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         Debug.Log(rb2D);
@@ -38,39 +49,84 @@ public class mg_runner_s : MonoBehaviour
         Vector2[] points = outer.points;
         outer_edge.points = points;
         Destroy(outer);
+
+        smoke_s = smoke.GetComponent<SpriteRenderer>();
+        time_main = Time.time;
+        time_anim = time_main;
     }
 
     void Update()
     {
-        if (Input.GetKey("up"))
+        if (!anim_done)
         {
-            rb2D.AddForce(Vector2.up * 2f);
+            takeof_anim();
+            if (System.Math.Abs(rocket.transform.position.y) < 0.1)
+                anim_done = true;
+            else
+            {
+                Vector2 r_pos = rocket.transform.position;
+                r_pos.y = Time.time - time_main - 2.5f;
+                r_pos.x += Random.Range(0.02f * -1.0f, 0.02f);
+                r_pos.y += Random.Range(0.02f * -1.0f, 0.02f);
+                rocket.transform.position = r_pos;
+            }
+            if (System.Math.Abs(scale.transform.position.x + 10.05f) > 0.05)
+            {
+                Vector2 sc_pos = scale.transform.position;
+                sc_pos.x += 0.05f;
+                scale.transform.position = sc_pos;
+            }
+            if (System.Math.Abs(arena.transform.position.x - 8.15) > 0.1f)
+            {
+                Vector2 ar_pos = arena.transform.position;
+                ar_pos.x -= 0.05f;
+                arena.transform.position = ar_pos;
+            }
         }
-        if (Input.GetKey("down"))
+        else
         {
-            rb2D.AddForce(Vector2.down * 2f);
+            if (Input.GetKey("up"))
+            {
+                rb2D.AddForce(Vector2.up * 2f);
+            }
+            if (Input.GetKey("down"))
+            {
+                rb2D.AddForce(Vector2.down * 2f);
+            }
+            if (Input.GetKey("right"))
+            {
+                rb2D.AddForce(Vector2.right * 2f);
+            }
+            if (Input.GetKey("left"))
+            {
+                rb2D.AddForce(Vector2.left * 2f);
+            }
+            if (Input.GetKey("space") || speed >= 100.0f)
+            {
+                SceneManager.LoadScene("map", LoadSceneMode.Single);
+            }
+            rb2D.AddForce(force);
+            DrawSpeed();
+            ControlRocket();
+            CheckDeath();
         }
-        if (Input.GetKey("right"))
+    }
+
+    void takeof_anim()
+    {
+        if (takeof_count > 5)
+            takeof_done = true;
+        if (Time.time - time_anim > 0.2f && !takeof_done)
         {
-            rb2D.AddForce(Vector2.right * 2f);
+            time_anim = Time.time;
+            smoke_s.sprite = s_sprites[takeof_count];
+            takeof_count += 1;
         }
-        if (Input.GetKey("left"))
-        {
-            rb2D.AddForce(Vector2.left * 2f);
-        }
-        if (Input.GetKey("space") || speed >= 100.0f)
-        {
-            SceneManager.LoadScene("map", LoadSceneMode.Single);
-        }
-        rb2D.AddForce(force);
-        DrawSpeed();
-        ControlRocket();
-        CheckDeath();
     }
 
     void ControlRocket()
     {
-        Vector2 r_pos = new Vector2((rb2D.transform.position.x - 8.7f) * 2.5f, rb2D.transform.position.y * 2.5f);
+        Vector2 r_pos = new Vector2((rb2D.transform.position.x - 8.7f) * 2.5f, rb2D.transform.position.y * 2.0f);
         Vector3 r_rot = new Vector3(0, 0, rb2D.velocity.x * 0.2f);
         rocket.transform.Rotate(r_rot);
         rocket.transform.position = r_pos;
@@ -121,9 +177,10 @@ public class mg_runner_s : MonoBehaviour
     void DrawSpeed()
     {
         speed = 100 / 30 * Time.time - time;
-        float pos_y = 6.0f / 100.0f * speed;
-        rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.0f + pos_y, 0);
-        speed_text.text = "Speed: " + speed.ToString() + "%";
+        float pos_y = 3.7f / 100.0f * speed;
+        Debug.Log("POS_Y" + pos_y);
+        rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.7f + pos_y, 0);
+        //speed_text.text = "Speed: " + speed.ToString() + "%";
     }
 
     private void OnTriggerExit2D(Collider2D collision)

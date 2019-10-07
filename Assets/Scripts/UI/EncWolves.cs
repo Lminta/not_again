@@ -41,6 +41,7 @@ public class EncWolves : MonoBehaviour
             	    "a swarm of radroaches crawls out of a nearby pile of trash. " +
             	    "It seems that they are quite interested in what you are doing. Or specifically in you.\nRadroaches are hard to read...";
         }
+        Time.timeScale = 0.0f;
         modalPanel.Choice(msg, leftAction, rightAction);
     }
 
@@ -48,10 +49,12 @@ public class EncWolves : MonoBehaviour
     {
         //to do: if player has a knife, dmg == 0, else dmg == 40
         player.GetComponent<PlayerController>().GetDmg(0);
+        Time.timeScale = 1.0f;
     }
 
     void actLeft()
     {
         player.GetComponent<PlayerController>().GetDmg(20);
+        Time.timeScale = 1.0f;
     }
 }
