@@ -10,9 +10,12 @@ public class Click : MonoBehaviour
     // Start is called before the first frame update
     private GameObject[] spawner;
     private GameObject[] gameObjects;
+    AudioSource audioTest;
+    private bool isplaying = false;
     // Start is called before the first frame update
     void Start()
     {
+        audioTest = GetComponent<AudioSource>();
         controller = Player.GetComponent<PlayerController>();
     }
 
@@ -68,13 +71,20 @@ public class Click : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Player != null)
+        Vector3 distance = destination - Player.transform.position;
+        if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
         {
-            Vector3 distance = destination - Player.transform.position;
-            if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
+            if (!isplaying)
             {
-                controller.Movement(distance.normalized.x, distance.normalized.y);
+                audioTest.Play(0);
+                isplaying = true;
             }
+            controller.Movement(distance.normalized.x, distance.normalized.y);
+        }
+        else
+        {
+            isplaying = false;
+            audioTest.Stop();
         }
     }
 }

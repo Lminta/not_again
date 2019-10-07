@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -466,6 +467,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &519420033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ccdd43a2b7aaa4c3cbf3aadecbfe7ecd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &540982666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,31 +1469,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: LifeTimeText
-      value: 
-      objectReference: {fileID: 1840590304}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: speed
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 519420028}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: lifetime
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
-        type: 3}
-      propertyPath: cl
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 260214812320693361, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1451,6 +1523,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: LifeTimeText
+      value: 
+      objectReference: {fileID: 1840590304}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: speed
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: lifetime
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009499607282108170, guid: 90d6915026ffc4f61bf4e5ace05f0bbb,
+        type: 3}
+      propertyPath: cl
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6915026ffc4f61bf4e5ace05f0bbb, type: 3}
@@ -2024,6 +2121,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Yes
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8c53c73f8f34740c3b296920ca14cfbd,
+        type: 3}
     - target: {fileID: 7619332571050684719, guid: 77d2943c06b52446493fa6214d37a46b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2189,29 +2309,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.6606
       objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Yes
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8c53c73f8f34740c3b296920ca14cfbd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d2943c06b52446493fa6214d37a46b, type: 3}
 --- !u!224 &1728751445 stripped
@@ -2588,6 +2685,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_Text
+      value: 'No
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8c53c73f8f34740c3b296920ca14cfbd,
+        type: 3}
     - target: {fileID: 7619332571050684719, guid: 77d2943c06b52446493fa6214d37a46b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2743,29 +2863,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.4248
       objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_Text
-      value: 'No
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001620508505814752, guid: 77d2943c06b52446493fa6214d37a46b,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8c53c73f8f34740c3b296920ca14cfbd,
-        type: 3}
     - target: {fileID: 5792563719740590560, guid: 77d2943c06b52446493fa6214d37a46b,
         type: 3}
       propertyPath: m_IsActive

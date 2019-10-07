@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MapBorder
   - gotInventory
+  - StartDesk
   layers:
   - Default
   - TransparentFX

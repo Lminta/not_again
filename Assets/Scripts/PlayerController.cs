@@ -12,9 +12,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int lifetime;
     public float EPSILON = 0.001f;
-
     private float t_0;
-    // Start is called before the first frame update
+
     void Start()
     {
         cl = Camera.GetComponent<Click>();
@@ -43,7 +42,6 @@ public class PlayerController : MonoBehaviour
         transform.position.y + moveVertical * speed,
         transform.position.z);
 
-        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
         if (System.Math.Abs(moveHorizontal) > EPSILON || System.Math.Abs(moveVertical) > EPSILON)
             lifetime--;
         transform.position = movement;
@@ -56,9 +54,8 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
-  public  void OnTriggerEnter2D(Collider2D other)
+    public  void OnTriggerEnter2D(Collider2D other)
     {
-        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
         if (other.gameObject.CompareTag("MapBorder"))
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
@@ -66,10 +63,5 @@ public class PlayerController : MonoBehaviour
     public  void GetDmg( int dmg)
     {
         this.lifetime -= dmg;
-    }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
     }
 }
