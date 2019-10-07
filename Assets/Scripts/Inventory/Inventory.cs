@@ -17,13 +17,23 @@ public class Inventory : MonoBehaviour
     {
 
         canvasGroup = GetComponent<CanvasGroup>();
-        int r = Random.Range(0, 3);
-        for (int i = 0; i < r; i++)
+        int r = Random.Range(0, nItems - 1);
+        if (suffleArray.Length > 0)
         {
-            this.playerInventory[i].AddItem(Instantiate<DragAndDropItem>(suffleArray[Random.Range(0, 8)], this.transform)); // add random of items
+            for (int i = 0; i < r; i++)
+            {
+                this.playerInventory[i].AddItem(Instantiate<DragAndDropItem>(suffleArray[Random.Range(0, suffleArray.Length - 1)], this.transform)); // add random of items
+            }
         }
         if (this.gameObject.name != "PlayerInventory")
+        {
             this.Hide();
+
+            canvasGroup = this.GetComponent<CanvasGroup>();
+
+            canvasGroup.alpha = 0f;
+            canvasGroup.blocksRaycasts = false;
+        }
     }
 
     // Update is called once per frame
