@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MapBorder
   - gotInventory
+  - StartDesk
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: PlacesOfInterest
     uniqueID: 2249928157
+    locked: 0
+  - name: StartDesk
+    uniqueID: 2971765053
     locked: 0
   - name: Player
     uniqueID: 2962639051
