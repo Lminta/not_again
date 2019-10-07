@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
         if (invItems.Length > 3 & winCondition == false) {
             winCondition = true;
             Debug.Log("Win");
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("minigame");
         }
     }
 }
