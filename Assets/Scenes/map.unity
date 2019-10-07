@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8d10d57332c47e6a41691ee6b00aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInv: {fileID: 7016518920468475175}
 --- !u!4 &242359548
 Transform:
   m_ObjectHideFlags: 0
@@ -171,8 +172,6 @@ MonoBehaviour:
   Player: {fileID: 1004987752}
   controller: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
-  inventory: {fileID: 0}
-  chestInventory: {fileID: 0}
 --- !u!1 &495859733
 GameObject:
   m_ObjectHideFlags: 0

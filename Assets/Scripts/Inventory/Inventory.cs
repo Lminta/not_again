@@ -55,9 +55,9 @@ public class Inventory : MonoBehaviour
         canvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
     }
 
-    public DragAndDropCell[] get_inventory()
+    public DragAndDropItem[] get_inventory()
     {
-        return (this.GetComponentsInChildren<DragAndDropCell>());
+        return (this.GetComponentsInChildren<DragAndDropItem>());
     }
 
     public void print_ll()
