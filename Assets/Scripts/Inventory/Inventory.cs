@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public DragAndDropCell cell;
     private CanvasGroup canvasGroup;
     public DragAndDropCell[] playerInventory = new DragAndDropCell[nItems];
+    public DragAndDropItem[] suffleArray = new DragAndDropItem[12];
     void Start()
     {
 
@@ -19,7 +20,7 @@ public class Inventory : MonoBehaviour
         int r = Random.Range(0, 3);
         for (int i = 0; i < r; i++)
         {
-            this.playerInventory[i].AddItem(Instantiate<DragAndDropItem>(item, this.transform)); // add random of items
+            this.playerInventory[i].AddItem(Instantiate<DragAndDropItem>(suffleArray[Random.Range(0, 8)], this.transform)); // add random of items
         }
         if (this.gameObject.name != "PlayerInventory")
             this.Hide();
