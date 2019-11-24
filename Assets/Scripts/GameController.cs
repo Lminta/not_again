@@ -9,12 +9,13 @@ public class GameController : MonoBehaviour
     public Inventory playerInv;
     public GameObject start;
     private DragAndDropItem[] invItems;
-    private bool winCondition = false;
+    public bool winCondition = false;
     public PlayerController playerController;
     public ModalPanel modalPanel;
     public float space_ship = 0.0f;
     public int[] parts;
     private GameObject[] objects;
+
     private void Awake()
     {
      
@@ -50,12 +51,13 @@ public class GameController : MonoBehaviour
             int rand = Random.Range(1, 3);
             if (playerController != null)
             {
-                if (playerController.lifetime > 500 && (playerController.lifetime - rand) % 500 == 0)
+                if (playerController.lifetime > 500 && (playerController.lifetime - rand) % 1500 == 0)
                 {
                     this.GetComponent<EncWolves>().Exec();
                     Debug.Log(modalPanel);
                 }
             }
+            Debug.Log("invItem size: " + invItems.Length);
             if (invItems.Length > 2)
             {
 

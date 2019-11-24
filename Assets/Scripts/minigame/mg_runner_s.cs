@@ -113,6 +113,9 @@ public class mg_runner_s : MonoBehaviour
             if (Input.GetKey("space") || speed >= 100.0f)
             {
                 //ЗДЕСЬ ОТПРАВИТЬ SPEED В GAME_CONTROLLER
+                GameObject controller = GameObject.Find("GameController");
+                GameController controller2 = controller.GetComponent<GameController>();
+                controller2.winCondition = false;
                 SceneManager.LoadScene("map", LoadSceneMode.Single);
             }
             rb2D.AddForce(force);
