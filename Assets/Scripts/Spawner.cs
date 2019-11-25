@@ -29,16 +29,31 @@ public class Spawner : MonoBehaviour
         //SpawnStations();
     }
 
+    private bool CheckNeighbours(Vector3 ranVec)
+    {
+        int             index = 0;
+        BoxCollider2D   c_col;
+
+        while (index < Result.Count)
+        {
+            c_col = Result[index].GetComponent<BoxCollider2D>();
+            if (c_col.bounds.Contains(ranVec))
+                return (true);
+            index += 1;
+        }
+        return (false);
+    }
+
     public void SpawnSites()
     {
         float border = 5000;
         for (int i = 0; i < amountSites; i++)
         {
-            float x = 9 * Random.Range(-border, border) / 5000f;
-            float y = Random.Range(-border, border) / 1000f;
+            float x = 8 * Random.Range(-border, border) / 5000f;
+            float y = Random.Range(-border, border) / 1200f;
             GameObject prefab = debrisPrefabs[Random.Range(0, debrisPrefabs.Count)];
             var ranVec = new Vector3(x, y, 1);
-            if (System.Math.Abs(ranVec.x) > EPSILON && System.Math.Abs(ranVec.y) > EPSILON)
+            if (System.Math.Abs(ranVec.x) > EPSILON && System.Math.Abs(ranVec.y) > EPSILON && !CheckNeighbours(ranVec))
             {
                 prefab.transform.position = ranVec;
                 Result.Add(Instantiate(prefab, ranVec, prefab.transform.rotation));
@@ -57,8 +72,8 @@ public class Spawner : MonoBehaviour
             border = 5000;
         for (int i = 0; i < stationsPrefabs.Count; i++)
         {
-            float x = 9 * Random.Range(-border, border) / 5000f;
-            float y = Random.Range(-border, border) / 1000f;
+            float x = 8 * Random.Range(-border, border) / 5000f;
+            float y = Random.Range(-border, border) / 1200f;
             GameObject prefab = stationsPrefabs[i];
             //if (prefab.CompareTag("StartDesk") && start != null)
                 //continue;
@@ -90,8 +105,8 @@ public class Spawner : MonoBehaviour
         float border = con.lifetime * difficult;
         for (int i = 0; i < Result.Count; i++)
         {
-            if (System.Math.Abs(Result[i].transform.position.x) > 9 * border / 5000f ||
-            System.Math.Abs(Result[i].transform.position.y) > border / 1000)
+            if (System.Math.Abs(Result[i].transform.position.x) > 8 * border / 5000f ||
+            System.Math.Abs(Result[i].transform.position.y) > border / 1200)
                 Result[i].gameObject.SetActive(false);
         }
     }
