@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         if (objs.Length != 0)
             con = objs[0].GetComponent<PlayerController>();
         SpawnSites();
-        SpawnStations();
+        //SpawnStations();
     }
 
     public void SpawnSites()
@@ -60,8 +60,8 @@ public class Spawner : MonoBehaviour
             float x = 9 * Random.Range(-border, border) / 5000f;
             float y = Random.Range(-border, border) / 1000f;
             GameObject prefab = stationsPrefabs[i];
-            if (prefab.CompareTag("StartDesk") && start != null)
-                continue;
+            //if (prefab.CompareTag("StartDesk") && start != null)
+                //continue;
             var ranVec = new Vector3(x, y, 1);
             prefab.transform.position = ranVec;
 

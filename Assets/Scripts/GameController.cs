@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Inventory playerInv;
     public GameObject start;
     private DragAndDropItem[] invItems;
@@ -18,35 +17,38 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-     
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
-        
         objects = GameObject.FindGameObjectsWithTag("Controller");
         if (objects.Length > 1)
         {
             Debug.Log("Destr");
             Destroy(this.gameObject);
         }
-
-        start = GameObject.FindGameObjectWithTag("StartDesk");
-        playerInv = start.GetComponent<Inventory>();
+        start = GameObject.Find("StartDesk");
+        if (!start)
+            Debug.Log("sosi jopu pojilogo");
+        else
+            Debug.Log("elon musk top waifu");
+        playerInv = start.GetComponentInChildren<Inventory>();
+        if (!playerInv)
+            Debug.Log("sosi jopu pojilogo (INV)");
+        else
+            Debug.Log("elon musk top waifu (INV)");
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (!start)
+            start = GameObject.Find("StartDesk");
+        if (start && !playerInv)
+            playerInv = start.GetComponentInChildren<Inventory>();
         if (playerInv != null)
         {
             invItems = playerInv.get_inventory();
-            //foreach(DragAndDropItem item in invItems)
-            //{ 
-
-            //}
 
             int rand = Random.Range(1, 3);
             if (playerController != null)
@@ -60,19 +62,13 @@ public class GameController : MonoBehaviour
             Debug.Log("invItem size: " + invItems.Length);
             if (invItems.Length > 2)
             {
-
-                //Debug.Log(invItems[0].name);
-                //Debug.Log(invItems[1].tag);
-                //Debug.Log(invItems[2].tag);
                 Debug.Log(invItems[0].name[invItems[0].name.Length - 8]);
                 Debug.Log(invItems[1].name[invItems[1].name.Length - 8]);
                 Debug.Log(invItems[2].name[invItems[2].name.Length - 8]);
-
-
                 if (invItems[0].tag == "top" && invItems[1].tag == "middle" && invItems[2].tag == "bottom")
                 {
                     parts = new int[5];
-                    parts[0] =  invItems[0].name[invItems[0].name.Length - 8] - 48;
+                    parts[0] = invItems[0].name[invItems[0].name.Length - 8] - 48;
                     parts[1] = invItems[1].name[invItems[1].name.Length - 8] - 48;
                     parts[2] = invItems[2].name[invItems[2].name.Length - 8] - 48;
                     if (winCondition == false)
@@ -83,7 +79,12 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
-
+        }
+        else
+        {
+            string scene = SceneManager.GetActiveScene().name;
+            //if (scene[0] == 'm' && !start)
+                //Debug.Log("sosi bibu");
         }
     }
 }
