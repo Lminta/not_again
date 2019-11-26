@@ -8,6 +8,7 @@ public class Click : MonoBehaviour
     public PlayerController controller;
     public Vector3 destination;
     // Start is called before the first frame update
+    private GameObject destObj;
     private GameObject[] spawner;
     private GameObject[] gameObjects;
     AudioSource audioTest;
@@ -15,6 +16,7 @@ public class Click : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HideAllInv();
         audioTest = GetComponent<AudioSource>();
         controller = Player.GetComponent<PlayerController>();
     }
@@ -31,7 +33,11 @@ public class Click : MonoBehaviour
 
             if (hit.collider != null && !hit.collider.gameObject.CompareTag("Player")
             && !hit.collider.gameObject.CompareTag("MapBorder") && !hit.collider.gameObject.CompareTag("Menu"))
+            {
                 destination = hit.collider.gameObject.transform.position;
+                CloseInventory();
+                destObj = hit.collider.gameObject;
+            }
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
                 destination = Player.transform.position;
             if (hit.collider != null)
@@ -79,6 +85,7 @@ public class Click : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 distance = destination - Player.transform.position;
+        //Debug.Log("DEST -> " + destination + " PLAYER -> "  + Player.transform.position);
         if (System.Math.Abs(distance.x) > 0.2 || System.Math.Abs(distance.y) > 0.2)
         {
             if (!isplaying)
@@ -90,8 +97,72 @@ public class Click : MonoBehaviour
         }
         else
         {
+            if (!V3Equal(destination, Player.transform.position))
+                OpenInventory();
+            destination = Player.transform.position;
             isplaying = false;
             audioTest.Stop();
+        }
+    }
+
+    public GameObject ClosestObj(string tag)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
+
+    public bool V3Equal(Vector3 a, Vector3 b)
+    {
+        return Vector3.SqrMagnitude(a - b) < 0.0001;
+    }
+
+    void OpenInventory()
+    {
+        Debug.Log("GO -> " + destObj.name);
+        if (destObj)
+        {
+            destObj.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 1f;
+            destObj.gameObject.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
+        }
+    }
+
+    void CloseInventory()
+    {
+        if (destObj)
+        {
+            destObj.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+            destObj.gameObject.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+        }
+    }
+
+    public bool CheckInvCell(RaycastHit2D hit)
+    {
+        Debug.Log("grandparent name -> " + hit.collider.gameObject.name);
+        return (hit.collider.gameObject.name == "PlayerInventory");
+    }
+
+    public void HideAllInv()
+    {
+        gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+
+        foreach (GameObject obj in gameObjects)
+        {
+            obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+            obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
         }
     }
 }

@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
                     Debug.Log(modalPanel);
                 }
             }
-            Debug.Log("invItem size: " + invItems.Length);
+            //Debug.Log("invItem size: " + invItems.Length);
             if (invItems.Length > 2)
             {
                 Debug.Log(invItems[0].name[invItems[0].name.Length - 8]);

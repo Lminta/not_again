@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        TryToMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //TryToMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         CheckTime();
     }
 
@@ -58,28 +58,29 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MapBorder"))
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-        if (other.gameObject.CompareTag("gotInventory"))
-        {
-            gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+        //if (other.gameObject.CompareTag("gotInventory"))
+        //{
+        //    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
-            foreach (GameObject obj in gameObjects)
-            {
-                obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
-            }
-            other.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 1f;
-            other.gameObject.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
-        }
-        else if (other.gameObject.CompareTag("gotInventory"))
-        {
-            gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
+        //    foreach (GameObject obj in gameObjects)
+        //    {
+        //        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+        //        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+        //    }
+        //    other.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 1f;
+        //    other.gameObject.GetComponentInChildren<CanvasGroup>().blocksRaycasts = true;
+        //}
+        //else if (other.gameObject.CompareTag("gotInventory"))
+        //{
+        //    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
-            foreach (GameObject obj in gameObjects)
-            {
-                obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
-                obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
-            }
-        }
+        //    foreach (GameObject obj in gameObjects)
+        //    {
+        //        obj.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+        //        obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
+        //    }
+        //}
+
      }
 
 

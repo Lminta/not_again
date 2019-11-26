@@ -76,13 +76,13 @@ public class mg_runner_s : MonoBehaviour
                 r_pos.y += Random.Range(0.02f * -1.0f, 0.02f);
                 rocket.transform.position = r_pos;
             }
-            if (System.Math.Abs(scale.transform.position.x + 10.05f) > 0.05)
+            if (System.Math.Abs(scale.transform.position.x + 9f) > 0.05)
             {
                 Vector2 sc_pos = scale.transform.position;
                 sc_pos.x += 0.05f;
                 scale.transform.position = sc_pos;
             }
-            if (System.Math.Abs(arena.transform.position.x - 8.15) > 0.1f)
+            if (System.Math.Abs(arena.transform.position.x - 7.8) > 0.05f)
             {
                 Vector2 ar_pos = arena.transform.position;
                 ar_pos.x -= 0.05f;
@@ -159,7 +159,7 @@ public class mg_runner_s : MonoBehaviour
         if (!death && (rb2D.velocity.x > -0.5f && rb2D.velocity.x < 0.5f) &&
         (rb2D.velocity.y > -0.5f && rb2D.velocity.y < 0.5f))
         {
-            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (4 * shake);
+            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (6 * shake);
             //Debug.Log(force);
             //Debug.Log(Time.time - time);
         }
@@ -197,8 +197,8 @@ public class mg_runner_s : MonoBehaviour
     void DrawSpeed()
     {
         speed = 100 / 30 * (Time.time - time);
-        float pos_y = 3.7f / 100.0f * speed * 2;
-        rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -3.7f + pos_y, 0);
+        float pos_y = 2.46f / 100.0f * speed * 2;
+        rocket_scale.transform.position = new Vector3(rocket_scale.transform.position.x, -2.46f + pos_y, 0);
         //speed_text.text = "Speed: " + speed.ToString() + "%";
     }
 
