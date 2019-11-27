@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Click : MonoBehaviour
 {
     public GameObject Player;
     public PlayerController controller;
     public Vector3 destination;
+    public GraphicRaycaster raycaster;
     // Start is called before the first frame update
     private GameObject destObj;
     private GameObject[] spawner;
     private GameObject[] gameObjects;
+    private bool menuGTFO = false;
     AudioSource audioTest;
     private bool isplaying = false;
     // Start is called before the first frame update
@@ -26,25 +30,37 @@ public class Click : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // check for canvas clicks
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
+            List<RaycastResult> results = new List<RaycastResult>();
+            pointerData.position = Input.mousePosition;
+            this.raycaster.Raycast(pointerData, results);
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject && result.gameObject.CompareTag("Menu"))
+                {
+                    Debug.Log("GTFO");
+                    menuGTFO = true;
+                }
+            }
+
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
             if (hit.collider != null && !hit.collider.gameObject.CompareTag("Player")
-            && !hit.collider.gameObject.CompareTag("MapBorder") && !hit.collider.gameObject.CompareTag("Menu"))
+            && !hit.collider.gameObject.CompareTag("MapBorder") && !menuGTFO)
             {
                 destination = hit.collider.gameObject.transform.position;
                 CloseInventory();
                 destObj = hit.collider.gameObject;
             }
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
+            if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") && !menuGTFO)
                 destination = Player.transform.position;
-            if (hit.collider != null)
+            if (hit.collider != null && !menuGTFO)
             {
                 Debug.Log(hit.collider.gameObject.name);
-
-
                 //if (hit.collider.gameObject.tag == "gotInventory")
                 //{
 
@@ -69,8 +85,9 @@ public class Click : MonoBehaviour
                 //    }
                 //}
             }
-            else
+            else if (!menuGTFO)
             {
+                Debug.Log("SOSI BIBU");
                 gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
 
                 foreach (GameObject obj in gameObjects)
@@ -79,6 +96,7 @@ public class Click : MonoBehaviour
                     obj.GetComponentInChildren<CanvasGroup>().blocksRaycasts = false;
                 }
             }
+            menuGTFO = false;
         }
     }
 
