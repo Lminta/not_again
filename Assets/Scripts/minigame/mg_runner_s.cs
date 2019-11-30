@@ -184,6 +184,9 @@ public class mg_runner_s : MonoBehaviour
             else
             {
                 //ЗДЕСЬ ВЫЗДВАТЬ СЦЕНУ ПРОИГРЫША
+                GameObject controller = GameObject.Find("GameController");
+                GameController controller2 = controller.GetComponent<GameController>();
+                controller2.retLifetime = 0;
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
         }

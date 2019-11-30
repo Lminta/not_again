@@ -11,13 +11,15 @@ public class PlayerController : MonoBehaviour
     public Text LifeTimeText; 
     public float speed;
     public int lifetime;
+    private GameObject controller;
+    private GameController controller2;
     private float EPSILON = 0.001f;
     private float t_0;
     private GameObject[] gameObjects;
     void Start()
     {
-        GameObject controller = GameObject.Find("GameController");
-        GameController controller2 = controller.GetComponent<GameController>();
+        controller = GameObject.Find("GameController");
+        controller2 = controller.GetComponent<GameController>();
         if (controller2.retLifetime == 0)
             lifetime = 1250;
         else
@@ -57,13 +59,19 @@ public class PlayerController : MonoBehaviour
     {
         LifeTimeText.text = "Oxygen " + lifetime.ToString();
         if (lifetime == 0)
+        {
+            controller2.retLifetime = 0;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
     }
 
     public  void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("MapBorder"))
+        {
+            controller2.retLifetime = 0;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
         //if (other.gameObject.CompareTag("gotInventory"))
         //{
         //    gameObjects = GameObject.FindGameObjectsWithTag("gotInventory");
