@@ -50,6 +50,10 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < amountSites; i++)
         {
             float x = 8 * Random.Range(-border, border) / 5000f;
+            //if (x > 0)
+            //    x = x - i * 0.1f;
+            //else
+                //x = x + i * 0.1f;
             float y = Random.Range(-border, border) / 1200f;
             GameObject prefab = debrisPrefabs[Random.Range(0, debrisPrefabs.Count)];
             var ranVec = new Vector3(x, y, 1);

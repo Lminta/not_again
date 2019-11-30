@@ -26,10 +26,14 @@ public class rocket_builder : MonoBehaviour
         Debug.Log(controller2.parts[0]);
         Debug.Log(controller2.parts[1]);
         Debug.Log(controller2.parts[2]);
-        if(controller2.parts[0] == controller2.parts[1] && controller2.parts[1] == controller2.parts[2])
+        runner.shake = controller2.parts[0] + controller2.parts[1] + controller2.parts[2] + 3;
+        if (controller2.parts[0] == controller2.parts[1] && controller2.parts[1] == controller2.parts[2])
         {
-            runner.shake = 8;
+            runner.shake *= 2;
         }
+        if (runner.shake == 18)
+            runner.shake += 6;
+        Debug.Log("final shake = " + runner.shake);
         s_top.sprite = sprites[controller2.parts[0]];
         s_mid.sprite = sprites[controller2.parts[1] + 3];
         s_bot.sprite = sprites[controller2.parts[2] + 6];

@@ -11,11 +11,17 @@ public class PlayerController : MonoBehaviour
     public Text LifeTimeText; 
     public float speed;
     public int lifetime;
-    public float EPSILON = 0.001f;
+    private float EPSILON = 0.001f;
     private float t_0;
     private GameObject[] gameObjects;
     void Start()
     {
+        GameObject controller = GameObject.Find("GameController");
+        GameController controller2 = controller.GetComponent<GameController>();
+        if (controller2.retLifetime == 0)
+            lifetime = 1250;
+        else
+            lifetime = controller2.retLifetime;
         cl = Camera.GetComponent<Click>();
     }
 

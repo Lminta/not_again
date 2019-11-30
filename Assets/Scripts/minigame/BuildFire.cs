@@ -13,7 +13,7 @@ public class BuildFire : MonoBehaviour
     {
         if (Time.time - a_time > 0.05f)
         {
-            Debug.Log("FIREFIREFIRE   ->   " + cur);
+            //Debug.Log("FIREFIREFIRE   ->   " + cur);
             if (cur > 6)
                 cur = 0;
             fireplace.sprite = sprites[cur];

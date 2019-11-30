@@ -10,11 +10,10 @@ public class mg_runner_s : MonoBehaviour
     private Rigidbody2D         rb2D;
     Vector2                     force = Vector2.zero;
 
-    //ЭТА ПЕРЕМЕННАЯ ОТВЕЧАЕТ ЗА СЛОЖНОСТЬ, 1 -> ОЧЕНЬ СЛОЖНО | 10 -> ОЧЕНЬ ЛЕГКО
-    public float                shake;
+    //ЭТА ПЕРЕМЕННАЯ ОТВЕЧАЕТ ЗА СЛОЖНОСТЬ, 1 -> ОЧЕНЬ СЛОЖНО | 20 -> ОЧЕНЬ ЛЕГКО
+    public int                shake;
 
     float                       time = 0;
-    //public Text                 speed_text;
     private float               speed;
     public EdgeCollider2D       outer_edge;
     public PolygonCollider2D    outer;
@@ -115,6 +114,8 @@ public class mg_runner_s : MonoBehaviour
                 //ЗДЕСЬ ОТПРАВИТЬ SPEED В GAME_CONTROLLER
                 GameObject controller = GameObject.Find("GameController");
                 GameController controller2 = controller.GetComponent<GameController>();
+                controller2.retLifetime = (int)speed * 50;
+                Debug.Log("speed: " + speed + "lifetime: " + controller2.retLifetime);
                 controller2.winCondition = false;
                 SceneManager.LoadScene("map", LoadSceneMode.Single);
             }
@@ -159,8 +160,8 @@ public class mg_runner_s : MonoBehaviour
         if (!death && (rb2D.velocity.x > -0.5f && rb2D.velocity.x < 0.5f) &&
         (rb2D.velocity.y > -0.5f && rb2D.velocity.y < 0.5f))
         {
-            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / (6 * shake);
-            //Debug.Log(force);
+            force = new Vector2(valid[Random.Range(0, valid.Length)], valid[Random.Range(0, valid.Length)]) * (Time.time - time) / shake;
+            Debug.Log(force);
             //Debug.Log(Time.time - time);
         }
     }

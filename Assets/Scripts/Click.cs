@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 
 public class Click : MonoBehaviour
 {
+    float EPSILON = 0f;
+
     public GameObject Player;
     public PlayerController controller;
     public Vector3 destination;
     public GraphicRaycaster raycaster;
+    public GameObject destObj;
     // Start is called before the first frame update
-    private GameObject destObj;
     private GameObject[] spawner;
     private GameObject[] gameObjects;
     private bool menuGTFO = false;
@@ -28,7 +30,7 @@ public class Click : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale > EPSILON)
         {
             // check for canvas clicks
             PointerEventData pointerData = new PointerEventData(EventSystem.current);

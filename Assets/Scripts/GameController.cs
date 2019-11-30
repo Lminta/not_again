@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public int retLifetime;
     public Inventory playerInv;
     public GameObject start;
     private DragAndDropItem[] invItems;
