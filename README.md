@@ -8,6 +8,9 @@ The prototype of the game for Ludum Dare Game Jam. Surviving on a desert planet,
 * Rocket launch.
 * Death.
 
+## Play now!
+[not_again on itch.io](https://lminta.itch.io/not-again)
+
 ## My team
 * [olesgedz](https://github.com/olesgedz).
 * [TebaHa](https://github.com/TebaHa).
