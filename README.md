@@ -1,5 +1,5 @@
 # not_again
-The prototype of the game for Ludum Dare game jam. Surviving on a desert planet, finding parts in piles of rubbish, building a rocket and traveling in time - all of this could be in our game if we completed it.
+The prototype of the game for Ludum Dare Game Jam. Surviving on a desert planet, finding parts in piles of rubbish, building a rocket and traveling in time - all of this could be in our game if we completed it.
 
 ## What's ready:
 * Random generator of objects on the map and their inventories.
