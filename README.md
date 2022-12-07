@@ -15,7 +15,7 @@ The prototype of the game for Ludum Dare Game Jam. Surviving on a desert planet,
 * [olesgedz](https://github.com/olesgedz).
 * [TebaHa](https://github.com/TebaHa).
 * [hardworkingcomma](https://github.com/hardworkingcomma).
-* And I [Aldarius](https://github.com/Aldarius).
+* And I [Lminta](https://github.com/Lminta).
 
 ## Screenshots
 <img src = https://github.com/Aldarius/not_again/blob/master/screens/screen_0.JPG>
